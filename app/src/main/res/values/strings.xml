@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">recycleVieww</string>
+    <string name="name">name</string>
+    <string name="surname">surname</string>
+    <string name="age">age</string>
+    <string name="todo">TODO</string>
+</resources>
