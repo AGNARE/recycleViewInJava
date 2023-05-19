@@ -9,14 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclevieww.databinding.ItemContactBinding;
+
 import java.util.ArrayList;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
-    ArrayList<Model> arrayList;
+    private ArrayList<Model> arrayList;
+    private ItemClick onItemClick;
 
-    public ContactAdapter(ArrayList<Model> arrayList) {
+    public ContactAdapter(ArrayList<Model> arrayList, ItemClick itemClick) {
         this.arrayList = arrayList;
+        this.onItemClick = itemClick;
     }
 
     @NonNull
@@ -30,6 +34,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.onBind(arrayList.get(position));
+        holder.itemView.setOnClickListener(v ->
+                onItemClick.onClick(arrayList.get(holder.getAdapterPosition())));
 
     }
 
